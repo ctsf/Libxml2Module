@@ -20,7 +20,7 @@ def process_folder(headers_folder, local_folder)
         if fname == "DOCBparser.h" then next end #deprecated file
         
         local = File.join(local_folder, fname)
-        puts "header \"#{local}\""
+        puts "import \"#{local}\""
 
         contents = File.read(File.join(headers_folder, fname))
         contents = process_contents(contents)
