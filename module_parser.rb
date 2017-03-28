@@ -5,13 +5,13 @@ simulator_suffix = "simulator"
 device_suffix = "device"
 
 def process_contents(contents, suffix)
-    contents = contents.gsub(/\#include <libxml\/(.*?)\.h>/, "#import \"\1-#{suffix}.h\"")
+    contents = contents.gsub(/\#include <libxml\/(.*?)\.h>/, "#import \"\\1-#{suffix}.h\"")
     contents = contents.gsub(/\#include <(.*?)\.h>/, '@import Darwin.C.\1;')
 
     return contents
 end
 
-def process_folder(headers_folder, suffix)
+def process_folder(headers_folder, local_folder, suffix)
     imports = ""
     
     Dir.foreach(headers_folder) do |fname|
@@ -23,7 +23,7 @@ def process_folder(headers_folder, suffix)
         imports += "    header \"#{local}\"\n"
 
         contents = File.read(File.join(headers_folder, fname))
-        contents = process_contents(contents)
+        contents = process_contents(contents, suffix)
 
         writer = File.open(File.join(local_folder, local), "w")
         writer.write(contents)
@@ -40,13 +40,13 @@ puts "}"
 puts
 puts
 puts "module Libxml2Simulator[system] {"
-puts process_folder(simulator_path, local_simulator_path)
+puts process_folder(simulator_path, local_folder, simulator_suffix)
 puts
 puts "export *"
 puts "}"
 puts
 puts "module Libxml2Device[system] {"
-puts process_folder(device_path, local_device_path)
+puts process_folder(device_path, local_folder, device_suffix)
 puts
 puts "    export *"
 puts "}"
