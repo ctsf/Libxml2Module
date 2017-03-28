@@ -9,12 +9,16 @@ Pod::Spec.new do |s|
     s.platform     = :ios, '8.0'
 
     s.libraries = 'xml2'
-    s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(PODS_ROOT)/Libxml2Module' }
-    s.pod_target_xcconfig = { 'HEADER_SEARCH_PATHS' => '$(PODS_ROOT)/Libxml2Module' }
+    s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(PODS_ROOT)/Libxml2Module/headers' }
+    s.pod_target_xcconfig = { 'HEADER_SEARCH_PATHS' => '$(PODS_ROOT)/Libxml2Module/headers' }
 
     s.module_map = 'Libxml2.modulemap'
     s.module_name = 'Libxml2'
 
-    s.source_files = '*.{h,m}', '**/*.{h,m}'
-    s.public_header_files = '*.h', '**/*.h'
+    s.source_files = 'headers/*.h'
+    s.public_header_files = 'headers/*.h'
+
+    s.prepare_command = <<-CMD
+        ruby module_parser.rb > Libxml2.modulemap
+    CMD
 end
