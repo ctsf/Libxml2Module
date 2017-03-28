@@ -12,5 +12,5 @@ Pod::Spec.new do |s|
     s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2' }
     s.module_map = 'Libxml2.modulemap'
     s.module_name = 'Libxml2'
-    s.source_files = 'dummy-source.m'
+    s.source_files = 'dummy-source.m', 'iphoneos/*.h', 'iphonesimulator/*.h'
 end
