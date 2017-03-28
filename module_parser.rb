@@ -42,7 +42,7 @@ puts
 puts "module Libxml2Simulator[system] {"
 puts process_folder(simulator_path, local_folder, simulator_suffix)
 puts
-puts "export *"
+puts "    export *"
 puts "}"
 puts
 puts "module Libxml2Device[system] {"
