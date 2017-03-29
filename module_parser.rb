@@ -20,7 +20,7 @@ def process_folder(headers_folder, local_folder, suffix)
         if fname == "DOCBparser.h" then next end #deprecated file
         
         local = fname.sub(/\.h/, "-#{suffix}.h")
-        imports += "        header \"#{local}\"\n"
+        imports += "    header \"#{local}\"\n"
 
         contents = File.read(File.join(headers_folder, fname))
         contents = process_contents(contents, suffix)
@@ -36,16 +36,8 @@ Dir.mkdir(local_folder) unless File.exists?(local_folder)
 
 puts "framework module Libxml2 {"
 puts
-puts "     module Simulator[system] {"
-puts process_folder(simulator_path, local_folder, simulator_suffix)
-puts
-puts "        export *"
-puts "    }"
-puts
-puts "    module Device[system] {"
 puts process_folder(device_path, local_folder, device_suffix)
 puts
-puts "        export *"
-puts "    }"
+puts "    export *"
 puts "}"
 puts
