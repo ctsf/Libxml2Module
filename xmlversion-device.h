@@ -12,11 +12,10 @@
 
 #import "xmlexports-device.h"
 
-// from lib
-//#ifdef __APPLE__
-//@import Darwin.C.Availability;
-//@import Darwin.C.TargetConditionals;
-//#endif
+#if defined(__APPLE__) && defined(TARGET_OS_MAC)
+@import Darwin.C.Availability;
+@import Darwin.C.TargetConditionals;
+#endif
 
 #ifdef __cplusplus
 extern "C" {

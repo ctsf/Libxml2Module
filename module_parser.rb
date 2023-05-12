@@ -19,7 +19,6 @@ def process_folder(headers_folder, local_folder, suffix)
 
         if fname == "DOCBparser.h" then next end #deprecated file
         if fname == "module.modulemap" then next end #not a header
-        if fname == "xmlversion-device.h" then next end #not a header
         
         local = fname.sub(/\.h/, "-#{suffix}.h")
         imports += "    header \"#{local}\"\n"
