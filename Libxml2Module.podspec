@@ -17,6 +17,7 @@ Pod::Spec.new do |s|
 
     s.source_files = 'dummy-source.m', 'Spec_Test.m', 'headers/*.h', 'xmlversion-device.h'
     s.public_header_files = 'headers/*.h'
+    s.exclude_files = 'headers/xmlversion-device.h'
 
     s.prepare_command = <<-CMD
         ruby module_parser.rb > Libxml2.modulemap
