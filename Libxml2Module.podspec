@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
     s.homepage     = 'https://github.com/pilot34/Libxml2Module'
     s.license      = 'MIT'
     s.author       = { "gtarasov" => "gleb34@gmail.com" }
-    s.source       = { git: 'git@github.com:Agisight/Libxml2Module.git', tag: "0.0.5" }
+    s.source       = { git: 'git@github.com:Agisight/Libxml2Module.git' }
     s.platform     = :ios, '11.0'
 
     s.libraries = 'xml2'
@@ -15,8 +15,8 @@ Pod::Spec.new do |s|
     s.module_map = 'Libxml2.modulemap'
     s.module_name = 'Libxml2'
 
-    s.source_files = 'dummy-source.m', 'headers/*.h', 'xmlversion-device.h'
-    s.public_header_files = 'headers/*.h'
+    s.source_files = 'dummy-source.m', 'Spec_Test.m', 'headers/*.h', 'xmlversion-device.h'
+    s.public_header_files = 'headers/*.h', 'xmlversion-device.h'
     s.exclude_files = 'headers/xmlversion-device.h'
 
     s.prepare_command = <<-CMD
