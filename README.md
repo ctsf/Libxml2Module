@@ -10,5 +10,4 @@ You need to add conditional import by platform for correct usage in Objective-C:
 #endif
 ```
 
-0.0.5
 Now supports Xcode 8.3
