@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
     s.module_map = 'Libxml2.modulemap'
     s.module_name = 'Libxml2'
 
-    s.source_files = 'dummy-source.m', 'Spec_Test.m', 'headers/*.h', 'xmlversion-device.h'
+    s.source_files = 'dummy-source.m', 'headers/*.h', 'xmlversion-device.h'
     s.public_header_files = 'headers/*.h', 'xmlversion-device.h'
     s.exclude_files = 'headers/xmlversion-device.h'
 
