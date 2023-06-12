@@ -31,7 +31,6 @@ def process_folder(headers_folder, local_folder, suffix)
 
         contents = File.read(File.join(headers_folder, fname))
         if fname == "xmlversion-device.h" then
-            #Don`t change library prefix by "Darwin.C"
             contents = light_process_contents(contents, suffix)
         else
             contents = process_contents(contents, suffix)
