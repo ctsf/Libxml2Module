@@ -11,7 +11,7 @@ def light_process_contents(contents, suffix)
 end
 
 def process_contents(contents, suffix)
-    contents = light_process_contents(contents, suffix)
+    contents = contents.gsub(/\#include <libxml\/(.*?)\.h>/, "#import \"\\1-#{suffix}.h\"")
     contents = contents.gsub(/\#include <(.*?)\.h>/, '@import Darwin.C.\1;')
 
     return contents
