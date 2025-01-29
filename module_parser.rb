@@ -43,7 +43,7 @@ def process_folder(headers_folder, local_folder, suffix)
     return imports
 end
 
-Dir.mkdir(local_folder) unless File.exists?(local_folder)
+Dir.mkdir(local_folder) unless File.exist?(local_folder)
 
 puts "framework module Libxml2 {"
 puts
